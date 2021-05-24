@@ -31,7 +31,6 @@ const RequestEnvPlugin = require('request-env-webpack');
 In js file:
 
 ``` javascript
-const RequestEnvPlugin = require('request-env-webpack');
 // src/index.js
 // ...
   console.log(process.env.APP_DATA) // output: "test"
