@@ -17,7 +17,7 @@
   "contributors": [],
   "license": "MIT",
   "scripts": {
-    "postprepare": "npm install"
+    "postinstall": "npm install --only=dev"
   },
   "devDependencies": {
     "axios": "^0.21.1",
