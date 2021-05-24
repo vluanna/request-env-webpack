@@ -16,9 +16,7 @@
   "author": "Luan Nguyen <luan.nguyen.fe@gmail.com>",
   "contributors": [],
   "license": "MIT",
-  "scripts": {
-    "prepare": "npm install"
-  },
+  "scripts": {},
   "devDependencies": {
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
