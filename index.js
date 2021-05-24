@@ -1,6 +1,7 @@
 const axios = require("axios");
 const webpack = require("webpack");
-// A JavaScript class.
+const dotEnv = require("dotenv");
+
 module.exports = class RequestEnvWebpack {
     static defaultOptions = {
         url: null,
@@ -23,7 +24,7 @@ module.exports = class RequestEnvWebpack {
                     }).apply(compiler);
                 };
                 if (!this.options.url) {
-                    setEnv(require("dotenv").config().parsed);
+                    setEnv(dotEnv.config().parsed);
                 } else {
                     try {
                         const configResp = await axios(this.options);
