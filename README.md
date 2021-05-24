@@ -1,6 +1,6 @@
 # request-env-webpack
 
-[Webpack](http://webpack.github.io/) (v1-5) plugin that gives ability to add callback
+[Webpack](http://webpack.github.io/) (v1-5) plugin that allow you to request environment variables from an url by using [axios](https://github.com/axios/axios) requests
 before build (or after, or any other [event hook](https://webpack.js.org/api/compiler-hooks/)). 
 Can stop compilation by condition.
 
@@ -29,5 +29,5 @@ const RequestEnvPlugin = require('request-env-webpack');
 // ...
 ```
 You can find other axios's API options [here](https://github.com/axios/axios#axios-api)
-You can use [pre-v4](https://github.com/webpack/webpack.js.org/blob/v3.11.0/src/content/api/compiler.md#event-hooks) or [v4](https://webpack.js.org/api/compiler-hooks/) hook names (i.e. any of `watch-run` and `watchRun`)
+By default, environment variables will load from .env files, more informations [here](https://github.com/motdotla/dotenv#readme)
 
