@@ -23,11 +23,23 @@ const RequestEnvPlugin = require('request-env-webpack');
         // Axios options...
         url: 'http://some.url/to/get/your/env.json',
         method: 'get'
-      }),
+      }), // response: ( data: { data: [{ key: 'APP_DATA', value: 'test' }], error: [] } )
     ]
   },
 // ...
 ```
+In js file:
+
+``` javascript
+const RequestEnvPlugin = require('request-env-webpack');
+// src/index.js
+// ...
+  console.log(process.env.APP_DATA) // output: "test"
+// ...
+```
+
+
 You can find other axios's API options [here](https://github.com/axios/axios#axios-api)
+
 By default, environment variables will load from .env files, more informations [here](https://github.com/motdotla/dotenv#readme)
 
