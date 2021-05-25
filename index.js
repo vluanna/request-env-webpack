@@ -7,6 +7,7 @@ const setEnv = (env, compiler) => {
     Object.keys(env || {}).forEach((key) => {
         envObj[key] = env[key];
     });
+    process.env = Object.assign(process.env, envObj)
     new webpack.DefinePlugin({
         "process.env": JSON.stringify(envObj),
     }).apply(compiler);
