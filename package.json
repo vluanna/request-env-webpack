@@ -21,6 +21,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
-    "webpack": "^5.8.0"
+    "webpack": "^4.44.2"
   }
 }
