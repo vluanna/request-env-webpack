@@ -21,8 +21,10 @@ const RequestEnvPlugin = require('request-env-webpack');
     plugins: [
       new RequestEnvPlugin({
         // Axios options...
-        url: 'http://some.url/to/get/your/env.json',
-        method: 'get'
+        url: 'http://some.url/to/get/your/env.json', // priority load from url first
+        configPath: '/home/user1/config.json', // config file to read, default get from env CONFIG_PATH (optional) { data: { 'APP_DATA': 'value' } }, load default from process.env.CONFIG_PATH
+        method: 'get',
+        configParser: (configs) => config.data, // the return value will be set to process.env
       }), // response: ( data: { data: [{ key: 'APP_DATA', value: 'test' }], error: [] } )
     ]
   },
@@ -34,6 +36,44 @@ In js file:
 // src/index.js
 // ...
   console.log(process.env.APP_DATA) // output: "test"
+// ...
+```
+
+Read from json file:
+
+``` javascript
+const RequestEnvPlugin = require('request-env-webpack');
+// ...
+  module: {
+    plugins: [
+      new RequestEnvPlugin({
+        configPath: '/home/user1/config.json', // config file to read, default get from env CONFIG_PATH (optional)
+        configParser: (configs) => configs.data,
+      }), // response: ( data: { data: [{ key: 'APP_DATA', value: 'test' }], error: [] } )
+    ]
+  },
+// ...
+```
+
+In json file:
+
+``` javascript
+// /home/user1/config.json
+  {
+    "data": {
+        "KEY1": "this-is-value-01",
+        "KEY2": "this-is-value-02",
+    },
+    "metadata": {}
+}
+```
+
+In js file:
+
+``` javascript
+// src/index.js
+// ...
+  console.log(process.env.KEY1) // output: "this-is-value-01"
 // ...
 ```
 
